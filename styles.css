@@ -1,0 +1,354 @@
+/* Dark mode portfolio styles */
+:root {
+  --bg: #0b1220;
+  --card: #0d1522;
+  --muted: #51688a;
+  --accent: #06b6d4;
+  --glass: rgba(255, 255, 255, 0.03);
+  --radius: 12px;
+  --maxw: 1100px;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: transparent;
+  color: black;
+  padding-top: 20px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Video Background */
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+  object-fit: cover;
+}
+
+/* Nav bar styles */
+.navbar {
+  background-color: transparent !important;
+  transition: background-color 0.5s ease;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  color: rgb(30, 64, 103) !important;
+  transition: color 0.4s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--accent) !important;
+  transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Main page content and section styles */
+.resume-section {
+  padding-top: 50px;
+  padding-bottom: 60px;
+  background: transparent;
+  /* All sections should be transparent */
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.6s ease;
+}
+
+.resume-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resume-section#education {
+  background-color: transparent !important;
+  /* Ensure education is also transparent */
+}
+
+.resume-section-content {
+  background-color: transparent !important;
+  /* This is the key change */
+}
+
+/* Card styling */
+.card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  background-color: #0b1220;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card .card-body {
+  padding: 1.5rem;
+}
+
+/* Education timeline styling */
+.timeline {
+  position: relative;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8px;
+  height: 100%;
+  width: 2px;
+  background-color: rgb(53, 50, 61);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 16px;
+  padding-left: 1.5rem;
+  background: rgba(120, 139, 165, 0.8) !important;
+  /* Keep the background for readability */
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(74, 86, 139, 0.6);
+  border: 1px solid rgba(15, 3, 3, 0.02);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  border: 2px solid var(--accent);
+  transform: translate(-50%, -50%);
+}
+
+.timeline-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-item .subheading {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.timeline-item .text-muted {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Other styling */
+.subheading {
+  font-weight: 600;
+}
+
+.text-muted {
+  color: var(--muted) !important;
+}
+
+hr.border-secondary {
+  border-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.img-profile {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.img-profile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(124, 170, 195, 0.051);
+}
+
+.social-icons {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.social-icon {
+  display: inline-block;
+  color: var(--muted);
+  transition: all 0.3s ease;
+  margin-right: 1.5rem;
+}
+
+.social-icon:hover {
+  color: var(--accent);
+  transform: scale(1.2);
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 1.5rem;
+}
+
+.fa-ul .fa-li {
+  width: 1.5rem;
+  text-align: center;
+  color: var(--accent);
+}
+
+.project-img-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 500px;
+  height: auto;
+  margin-bottom: 3rem;
+}
+
+.project-img-wrapper img {
+  width: 87%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-img-wrapper img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(13, 198, 195, 0.695);
+}
+
+.progress {
+  background-color: var(--secondary);
+  border-radius: 4px;
+}
+
+.progress-bar {
+  background-color: var(--accent);
+  transition: width 1.5s ease-in-out;
+}
+
+.resume-section-content h2 {
+  position: relative;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  color: #071f37;
+  margin-bottom: 2rem;
+}
+
+.resume-section-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+/* Social Icons styling with Tooltip */
+.social-icons {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.social-icon {
+  position: relative;
+  /* Tooltip को सही जगह पर रखने के लिए */
+  display: inline-block;
+  color: var(--muted);
+  transition: all 0.3s ease;
+  margin-right: 1.5rem;
+}
+
+.social-icon:hover {
+  color: var(--accent);
+  transform: scale(1.2);
+}
+
+.social-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--card);
+  color: white;  /* CHANGE THIS */
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+.social-icon:hover::after {
+  opacity: 1;
+  /* Hover पर दिखाता है */
+  visibility: visible;
+}
+
+.img-profile {
+  width: 250px;
+  height: 250px;
+  border-radius: 0; /* Ensures it's square, or you can add a small border-radius like 8px */
+  object-fit: cover;
+  background: transparent; /* Ensure no solid background behind the image */
+  box-shadow: none; /* Remove any default box shadow from the image itself */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Remove or modify the hover effect if it's adding a border/shadow you don't want */
+.img-profile:hover {
+  transform: scale(1.05);
+  /* box-shadow: 0 10px 20px rgba(124, 170, 195, 0.051); */ /* Remove this line */
+  box-shadow: none;
+}
+
+/*background image*/
+
+body {
+  background-image: url('assets/img/background.jpg');  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+}
+ /* cards*/
+#projects .card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
